@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+<div class="row">
+    <h1 class="col">{{ post.title }}</h1>
+    <p class="col text-muted text-right">{{ post.published }}</p>
+</div>
+<div class="row">
+    <p class="col">{{ post.text }}</p>
+</div>
+</div>
+
+<footer><a href="{% url 'blog:show_list' %}">Back</a></footer>
+
+{% endblock content %}
