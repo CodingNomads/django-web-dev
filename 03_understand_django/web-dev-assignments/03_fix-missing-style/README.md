@@ -1,6 +1,6 @@
 # Fix Missing Style
 
-Your boss told you that they found this project online and it should look nice and modern, however, currently it looks... messy! They say that they expect it to look like below, and that you have exactly 1 hour to prove your worth:
+Your boss told you that they found [this project online](https://github.com/CodingNomads/django-web-dev/tree/master/03_understand_django/web-dev-assignments/03_fix-missing-style) and it should look nice and modern, however, currently it looks... messy! They say that they expect it to look like below, and that you have exactly 1 hour to prove your worth:
 
 ![News Page Rendered Nicely](news_nice.png)
 
