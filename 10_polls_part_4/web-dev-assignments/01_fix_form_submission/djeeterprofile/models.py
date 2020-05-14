@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
+# This Profile class extends the default Django User model.
+# If you want to learn more about it, read the tutorial, otherwise accept and move on :)
 class DjeeterProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     follows = models.ManyToManyField('self',

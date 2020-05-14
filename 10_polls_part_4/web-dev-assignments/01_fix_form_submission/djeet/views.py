@@ -6,7 +6,7 @@ from .models import Djeet
 @login_required
 def feed(request):
     userids = []
-    # gives us the whole user profile
+    # gives you the whole user profile
     for user in request.user.djeeterprofile.follows.all():
         # collecting the IDs of user's the user is following
         userids.append(user.id)
