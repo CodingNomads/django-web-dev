@@ -53,7 +53,6 @@ def profile(request, username):
         # TODO: this is one area where you need to fix form submission
         if request.method == 'POST':
 
-            djeet = Djeet(body=request.POST['body'])
             djeet.user = request.user
             djeet.save()
 
@@ -61,7 +60,6 @@ def profile(request, username):
 
             return redirect(redirecturl)
         else:
-            print("INHERE", user)
             return render(request, 'profile.html', {'user': user})
         # end of form-related code you need to worry about
 

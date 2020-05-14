@@ -62,10 +62,7 @@
         {% endif %}
 
         <!-- TODO: fix the form submission code here -->
-        <form action="/{{ request.user.username }}/" method="post">
-            {% csrf_token %}
-            <textarea name="body" id="djeet-body" cols="30" rows="10" placeholder="Djeet"></textarea>
-
+        <form action="/{{ request.user.username }}/" method="">
             <input type="hidden" value="{{ request.path }}" name="redirect">
             <input type="submit" value="Post djeet" class="btn btn-primary">
         </form>
