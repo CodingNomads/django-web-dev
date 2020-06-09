@@ -6,16 +6,16 @@
     <div class="col-13">
         <h3>Feed</h3>
 
-        {% for djeet in djeets %}
+        {% for post in feed %}
             <div class="card" style="margin-bottom: 20px;">
                 <div class="card-body">
                     <h5 class="card-title">
                         <a href="/{{ djeet.user.username }}/">
-                        @{{ djeet.user.username }}</a>
+                        @{{ post.user.username }}</a>
                     </h5>
                     <p class="card-text">
-                        <strong>{{ djeet.created_at }}</strong> -
-                        {{ djeet.body }}
+                        <strong>{{ post.created_at }}</strong> -
+                        {{ post.body }}
                     </p>
                 </div>
             </div>

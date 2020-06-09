@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from djeeterprofile.forms import SignupForm, SigninForm
-from djeet.forms import DjeetForm
+from profile.forms import SignupForm, SigninForm
+from feed.forms import PostForm
 
 
 def frontpage(request):
@@ -51,18 +51,18 @@ def profile(request, username):
         user = User.objects.get(username=username)
 
         if request.method == 'POST':
-            form = DjeetForm(data=request.POST)
+            form = PostForm(data=request.POST)
 
             if form.is_valid():
-                djeet = form.save(commit=False)
-                djeet.user = request.user
-                djeet.save()
+                post = form.save(commit=False)
+                post.user = request.user
+                post.save()
 
                 redirecturl = request.POST.get('redirect', '/')
 
                 return redirect(redirecturl)
         else:
-            form = DjeetForm()
+            form = PostForm()
 
         return render(request, 'profile.html', {'form': form, 'user': user})
 
@@ -74,26 +74,26 @@ def profile(request, username):
 def following(request, username):
     user = User.objects.get(username=username)
     # important to add .all() at the end!
-    djeeterprofiles = user.djeeterprofile.follows.select_related('user').all()
+    profiles = user.profile.follows.select_related('user').all()
 
     return render(request, 'users.html', {'title': 'Following',
-                                          'djeeterprofiles': djeeterprofiles})
+                                          'profiles': profiles})
 
 
 @login_required
 def followers(request, username):
     user = User.objects.get(username=username)
     # important to add .all() at the end!
-    djeeterprofiles = user.djeeterprofile.followed_by.select_related('user').all()
+    profiles = user.profile.followed_by.select_related('user').all()
 
     return render(request, 'users.html', {'title': 'Followers',
-                                          'djeeterprofiles': djeeterprofiles})
+                                          'profiles': profiles})
 
 
 @login_required
 def follow(request, username):
     user = User.objects.get(username=username)
-    request.user.djeeterprofile.follows.add(user.djeeterprofile)
+    request.user.profile.follows.add(user.profile)
 
     return redirect('/' + user.username + '/')
 
@@ -102,6 +102,6 @@ def follow(request, username):
 def stopfollow(request, username):
     user = User.objects.get(username=username)
     # watch out, this should be .remove() instead of .delete()
-    request.user.djeeterprofile.follows.remove(user.djeeterprofile)
+    request.user.profile.follows.remove(user.profile)
 
     return redirect('/' + user.username + '/')
