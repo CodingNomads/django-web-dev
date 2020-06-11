@@ -10,11 +10,10 @@ def index(request):
 def topics(request):
     """Displays a list of all available topics."""
     topics = Topic.objects.order_by('-date_added')
-    context = {'topics': topics}
-    return render(request, 'learning_logs/topics.html', context)
+    return render(request, 'learning_logs/topics.html')
 
 def entry(request, pk):
-    """Displays the full text of a a learning entry."""
+    """Displays the full text of a learning entry."""
     entry = Entry.objects.get(pk=pk)
-    return render(request, 'learning_logs/entry.html')
+    return render(request, 'learning_logs/entry.html', {'entry': entry})
     
