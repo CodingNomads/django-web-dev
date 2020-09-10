@@ -23,7 +23,11 @@ Currently you are able to display everything fine, but once you try to _submit a
 - How would you submit a new tweet? There's no visible input fields, and if you click the button, nothing happens
 - Dive into the Django code and fix the issue! Submitting tweets should make them display on your profile page
 
-<img alt="alt" class="img-responsive cn_image" src="https://github.com/CodingNomads/static/blob/main/django/imgs/djitter_missing_input.png?raw=true">
+After applying the necessary changes, your profile page should look like below.
+
+<img alt="alt" class="img-responsive cn_image" src="https://github.com/CodingNomads/static/blob/main/django/imgs/djitter_input_fixed.png?raw=true">
+
+You should be able to add _djeets_ by writing something into the input box and pressing <kbd>Post djeet</kbd>. The message should then appear on your wall on the left.
 
 ### Some Guidance
 
