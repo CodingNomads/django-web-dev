@@ -4,7 +4,7 @@ After a long and successful learning session, you went ahead and inputted the fo
 
 You are still happy when you go to your learning logs Topics page and see the following...
 
-![Learning Log Screenshot with long link](long_link.png)
+<img alt="Learning Log Screenshot with long link" class="img-responsive cn_image" src="https://github.com/CodingNomads/django-web-dev/blob/master/05_blog_overview/03_fix_long_texts_displayed_in_full/long_link.png?raw=true">
 
 That's not very pretty!
 
